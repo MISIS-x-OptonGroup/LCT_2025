@@ -9,10 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     
     <!-- Custom colors for Nature app -->
-    <color name="nature_green">#5A8D77</color>
-    <color name="nature_green_dark">#4A7D67</color>
-    <color name="nature_green_light">#6A9D87</color>
-    <color name="nature_green_accent">#7AAD95</color>
+    <color name="nature_green">#588457</color>
+    <color name="nature_green_dark">#487447</color>
+    <color name="nature_green_light">#689467</color>
+    <color name="nature_green_accent">#78A477</color>
     <color name="overlay_dark">#99080905</color>
     <color name="overlay_light">#33FFFFFF</color>
     <color name="text_dark">#080905</color>
@@ -20,13 +20,13 @@
     
     <!-- Gradient colors from bg_gradient_nature -->
     <color name="gradient_start">#080905</color>
-    <color name="gradient_center">#2A4A3A</color>
-    <color name="gradient_end">#5A8D77</color>
+    <color name="gradient_center">#28482A</color>
+    <color name="gradient_end">#588457</color>
     
     <!-- Card and Dialog backgrounds -->
-    <color name="card_bg_dark">#1A2F35</color>
+    <color name="card_bg_dark">#1A2F1A</color>
     <color name="card_bg_darker">#080905</color>
-    <color name="card_bg_accent">#3A5A4A</color>
+    <color name="card_bg_accent">#385838</color>
     
     <!-- Additional UI colors -->
     <color name="shadow_color">#40080905</color>

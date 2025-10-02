@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_nature"
+    android:background="@drawable/bg_gradient_light"
     tools:context=".CameraActivity">
 
     <!-- Camera Preview -->
@@ -36,7 +36,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        app:cardBackgroundColor="#B3FFFFFF"
+        app:cardBackgroundColor="@color/nature_green"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
             android:padding="12dp"
             android:contentDescription="Назад"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:tint="#080905" />
+            app:tint="@color/white" />
     </com.google.android.material.card.MaterialCardView>
 
     <!-- GPS координаты с красивым фоном -->

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/card_bg_dark">
+            android:background="@color/white">
 
             <!-- Photo Image -->
             <ImageView
@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:scaleType="centerCrop"
-                android:background="@color/card_bg_darker"
+                android:background="#F5F5F5"
                 android:contentDescription="Фотография" />
 
             <!-- Content Container -->
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Отправленное фото"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-medium"
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Фото #1"
-                    android:textColor="#A0B8A0"
+                    android:textColor="#757575"
                     android:textSize="16sp"
                     android:layout_marginBottom="24dp" />
 
@@ -74,7 +74,7 @@
 
                         <TextView
                             android:text="Дата"
-                            android:textColor="#A0B8A0"
+                            android:textColor="#757575"
                             android:textSize="11sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                         <TextView
                             android:id="@+id/dateValueText"
                             android:text="Сегодня"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
 
                         <TextView
                             android:text="Время"
-                            android:textColor="#A0B8A0"
+                            android:textColor="#757575"
                             android:textSize="11sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                         <TextView
                             android:id="@+id/timeValueText"
                             android:text="12:00"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
 
                         <TextView
                             android:text="Статус"
-                            android:textColor="#A0B8A0"
+                            android:textColor="#757575"
                             android:textSize="11sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                         <TextView
                             android:id="@+id/statusValueText"
                             android:text="Обработка"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
 
                         <TextView
                             android:text="Данные"
-                            android:textColor="#A0B8A0"
+                            android:textColor="#757575"
                             android:textSize="11sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                         <TextView
                             android:id="@+id/backendDataText"
                             android:text="Ожидание"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Фотография отправлена на обработку. Информация с бекенда появится после завершения анализа."
-                    android:textColor="#A0B8A0"
+                    android:textColor="#757575"
                     android:textSize="14sp"
                     android:lineSpacingExtra="4dp"
                     android:layout_marginBottom="24dp" />
@@ -186,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="16dp"
-                    app:cardBackgroundColor="#2A4A3A"
+                    app:cardBackgroundColor="#E8F5E9"
                     app:cardElevation="0dp"
                     android:layout_marginBottom="16dp">
 
@@ -198,7 +198,7 @@
 
                         <TextView
                             android:text="📍 Координаты GPS"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -208,7 +208,7 @@
                         <TextView
                             android:id="@+id/coordinatesText"
                             android:text="Широта: 55.751244, Долгота: 37.618423"
-                            android:textColor="#A0B8A0"
+                            android:textColor="#757575"
                             android:textSize="13sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -227,7 +227,7 @@
 
                     <TextView
                         android:text="Результаты анализа"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
@@ -237,7 +237,7 @@
                     <TextView
                         android:id="@+id/backendResultText"
                         android:text="Здесь будут результаты с бекенда"
-                        android:textColor="#A0B8A0"
+                        android:textColor="#757575"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -255,7 +255,7 @@
 
                     <TextView
                         android:text="🔍 Обнаруженные объекты"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
@@ -293,7 +293,7 @@
                         android:text="Поделиться"
                         android:textSize="14sp"
                         android:textAllCaps="false"
-                        android:backgroundTint="#5A8D77"
+                        android:backgroundTint="#588457"
                         android:textColor="@color/white"
                         app:cornerRadius="16dp"
                         app:icon="@android:drawable/ic_menu_share"

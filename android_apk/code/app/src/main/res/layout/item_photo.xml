@@ -33,7 +33,7 @@
                     android:id="@+id/selectionOverlay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#80080905"
+                    android:background="#80588457"
                     android:visibility="gone" />
 
                 <!-- Check icon -->

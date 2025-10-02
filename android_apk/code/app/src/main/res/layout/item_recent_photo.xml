@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp"
-        android:background="@color/card_bg_dark">
+        android:background="@color/white">
 
         <!-- Фото -->
         <androidx.cardview.widget.CardView
@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:contentDescription="Фотография"
-                android:background="@color/card_bg_darker" />
+                android:background="#F5F5F5" />
         </androidx.cardview.widget.CardView>
 
         <!-- Информация о фото -->
@@ -46,7 +46,7 @@
                 android:text="Фото #1"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/photoDateText"
@@ -55,7 +55,7 @@
                 android:layout_marginTop="4dp"
                 android:text="01.10.2025 12:00"
                 android:textSize="14sp"
-                android:textColor="@color/text_light" />
+                android:textColor="#757575" />
 
             <TextView
                 android:id="@+id/photoObjectsText"
@@ -64,7 +64,7 @@
                 android:layout_marginTop="4dp"
                 android:text="Найдено объектов: 0"
                 android:textSize="14sp"
-                android:textColor="@color/nature_green_accent" />
+                android:textColor="@color/nature_green" />
 
             <TextView
                 android:id="@+id/photoLocationText"
@@ -73,7 +73,7 @@
                 android:layout_marginTop="4dp"
                 android:text="Координаты"
                 android:textSize="12sp"
-                android:textColor="@color/text_light"
+                android:textColor="#757575"
                 android:maxLines="1"
                 android:ellipsize="end" />
 

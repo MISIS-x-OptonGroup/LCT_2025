@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_gradient_nature"
+    android:background="@drawable/bg_gradient_light"
     android:fillViewport="true">
 
 <LinearLayout
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Детали объекта"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium" />
@@ -76,7 +76,7 @@
                 android:layout_gravity="top|end"
                 android:layout_margin="12dp"
                 android:text="85%"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:background="@drawable/bg_confidence_badge"
@@ -94,7 +94,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_object_type_header"
+        android:background="@drawable/bg_object_type_header_light"
         android:padding="16dp">
 
         <TextView
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Тип: Дерево"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -172,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Берёза повислая (80%)"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:lineSpacingExtra="2dp" />
     </LinearLayout>
@@ -184,7 +184,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -217,7 +217,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Осень"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp" />
@@ -238,7 +238,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -271,7 +271,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="• Мучнистая роса (40%)\n• Гниль (30%)"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:lineSpacingExtra="2dp" />
     </LinearLayout>
@@ -283,7 +283,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -316,7 +316,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="• Короед (50%)\n• Листовертка (35%)"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:lineSpacingExtra="2dp" />
     </LinearLayout>
@@ -328,7 +328,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -361,7 +361,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Сухие ветки: 25%"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -372,7 +372,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="16dp"
         android:visibility="gone">
 
@@ -405,7 +405,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Средний"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp" />
@@ -427,7 +427,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/bg_info_section"
+        android:background="@drawable/bg_info_section_light"
         android:layout_marginBottom="20dp"
         android:visibility="gone">
 
@@ -460,7 +460,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Общая уверенность: 70%\nЗамечания: Удалённый вид"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:lineSpacingExtra="2dp" />
     </LinearLayout>

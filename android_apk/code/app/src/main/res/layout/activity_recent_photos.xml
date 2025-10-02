@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_nature"
+    android:background="@drawable/bg_gradient_light"
     tools:context=".RecentPhotosActivity">
 
     <!-- Close button at top left -->
@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@android:color/white"
+        android:backgroundTint="@color/nature_green"
         android:contentDescription="Закрыть"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         android:elevation="8dp"
         app:fabSize="normal"
         app:borderWidth="0dp"
-        app:tint="@color/nature_green_dark"
+        app:tint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Нет обработанных фотографий"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Сделайте фото и они появятся здесь"
-            android:textColor="@android:color/white"
+            android:textColor="#757575"
             android:textSize="14sp"
             android:alpha="0.8" />
 

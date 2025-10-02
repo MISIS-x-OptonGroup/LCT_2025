@@ -10,7 +10,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_gradient_nature" />
+        android:background="@drawable/bg_gradient_light" />
 
     <!-- Help button at top -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -76,16 +76,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="#CC080905"
+                    android:background="#E0FFFFFF"
                     android:padding="16dp"
                     android:text="Нажмите, чтобы открыть карту"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     android:elevation="4dp"
                     android:alpha="0.9"
                     android:drawableTop="@android:drawable/ic_dialog_map"
-                    android:drawableTint="@android:color/white"
+                    android:drawableTint="@color/nature_green"
                     android:drawablePadding="8dp"
                     android:gravity="center"
                     app:cornerRadius="12dp" />
@@ -121,14 +121,14 @@
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/white"
+                android:backgroundTint="@color/nature_green"
                 android:elevation="8dp"
                 android:letterSpacing="0.02"
                 android:paddingStart="28dp"
                 android:paddingEnd="24dp"
                 android:text="@string/take_photo"
                 android:textAllCaps="false"
-                android:textColor="@color/nature_green_dark"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium"
@@ -137,7 +137,7 @@
                 app:iconGravity="textEnd"
                 app:iconPadding="12dp"
                 app:iconSize="28dp"
-                app:iconTint="@color/nature_green_dark" />
+                app:iconTint="@android:color/white" />
 
         </LinearLayout>
 

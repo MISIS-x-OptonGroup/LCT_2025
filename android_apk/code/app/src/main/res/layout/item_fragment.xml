@@ -9,7 +9,7 @@
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="16dp"
-    app:cardBackgroundColor="@color/card_bg_darker"
+    app:cardBackgroundColor="#F5F5F5"
     app:cardElevation="6dp">
 
     <ImageView
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:background="@color/card_bg_accent"
+        android:background="#E8F5E9"
         android:contentDescription="Фрагмент объекта" />
 
 </androidx.cardview.widget.CardView>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_nature"
+    android:background="@drawable/bg_gradient_light"
     tools:context=".LiveProcessingActivity">
 
     <!-- Close button -->
@@ -13,12 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/nature_green"
         android:contentDescription="Закрыть"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         android:elevation="8dp"
         app:fabSize="mini"
-        app:tint="@color/black"
+        app:tint="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,7 +55,7 @@
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/card_bg_dark"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Подготовка к загрузке..."
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -100,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Результаты обработки:"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="12dp" />
@@ -116,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Найдено объектов:"
-                        android:textColor="@color/text_light"
+                        android:textColor="#757575"
                         android:textSize="14sp"
                         android:layout_marginEnd="8dp" />
 
@@ -125,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:textColor="@color/nature_green_accent"
+                        android:textColor="@color/nature_green"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/text_light"
+                    android:textColor="#757575"
                     android:textSize="14sp"
                     android:layout_marginBottom="16dp"
                     android:maxLines="5"
@@ -168,11 +168,11 @@
                         android:layout_weight="1"
                         android:text="Следующее фото"
                         android:textSize="14sp"
-                        android:backgroundTint="@color/card_bg_accent"
+                        android:backgroundTint="@color/nature_green_light"
                         android:textColor="@color/white"
                         android:layout_marginStart="8dp"
                         app:cornerRadius="8dp"
-                        app:strokeColor="@color/nature_green_accent"
+                        app:strokeColor="@color/nature_green"
                         app:strokeWidth="2dp" />
                 </LinearLayout>
 
