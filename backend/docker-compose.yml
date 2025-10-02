@@ -1,0 +1,196 @@
+version: '3.8'
+
+services:
+  # PostgreSQL база данных
+  postgres:
+    image: postgres:15-alpine
+    container_name: lct_postgres
+    environment:
+      POSTGRES_DB: lct_backend1
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - lct_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MinIO S3-совместимое хранилище
+  minio:
+    image: minio/minio:latest
+    container_name: lct_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"  # API порт
+      - "9001:9001"  # Console порт
+    networks:
+      - lct_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # Создание bucket в MinIO
+  minio-setup:
+    image: minio/mc:latest
+    container_name: lct_minio_setup
+    depends_on:
+      minio:
+        condition: service_healthy
+    networks:
+      - lct_network
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc alias set minio http://minio:9000 minioadmin minioadmin123;
+      /usr/bin/mc mb minio/lct-backend1-images --ignore-existing;
+      /usr/bin/mc policy set public minio/lct-backend1-images;
+      exit 0;
+      "
+
+  # RabbitMQ брокер сообщений
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: lct_rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: app
+      RABBITMQ_DEFAULT_PASS: app_password
+      RABBITMQ_DEFAULT_VHOST: /
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Management UI
+    networks:
+      - lct_network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend1 - основной сервис с API, PostgreSQL, S3
+  backend1:
+    build: ./lct_backend1
+    container_name: lct_backend1
+    environment:
+      # База данных
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/lct_backend1
+      
+      # S3 конфигурация (MinIO)
+      AWS_ACCESS_KEY_ID: minioadmin
+      AWS_SECRET_ACCESS_KEY: minioadmin123
+      S3_BUCKET_NAME: lct-backend1-images
+      S3_REGION: us-east-1
+      S3_ENDPOINT_URL: http://minio:9000
+
+      # RabbitMQ
+      RABBITMQ_URL: amqp://app:app_password@rabbitmq:5672/
+      RABBITMQ_QUEUE_IMAGE_TASKS: image_tasks
+      RABBITMQ_QUEUE_IMAGE_RESULTS: image_results
+      RABBITMQ_QUEUE_IMAGE_DESCRIPTIONS: image_descriptions
+      
+      # Настройки приложения
+      DEBUG: "true"
+      HOST: 0.0.0.0
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-setup:
+        condition: service_completed_successfully
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - lct_network
+    command: >
+      sh -c "
+      echo 'Ожидание готовности базы данных...';
+      sleep 10;
+      echo 'Запуск приложения...';
+      python run.py
+      "
+
+  # Backend2 - ML обработка изображений
+  backend2:
+    build: ./lct_backend2
+    container_name: lct_backend2
+    environment:
+      PYTHONUNBUFFERED: 1
+      PORT: 8001
+      DEBUG: "true"
+      HOST: 0.0.0.0
+      
+      # RabbitMQ
+      RABBITMQ_URL: amqp://app:app_password@rabbitmq:5672/
+      RABBITMQ_QUEUE_IMAGE_TASKS: image_tasks
+      RABBITMQ_QUEUE_IMAGE_RESULTS: image_results
+    ports:
+      - "8001:8001"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - lct_network
+    restart: unless-stopped
+    # Доступ к GPU (RTX 4070 Super)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # Backend3 - анализ изображений через NVIDIA API
+  backend3:
+    build: ./lct_backend3
+    container_name: lct_backend3
+    environment:
+      PYTHONUNBUFFERED: 1
+      PORT: 8002
+      DEBUG: "true"
+      HOST: 0.0.0.0
+      
+      # RabbitMQ
+      RABBITMQ_URL: amqp://app:app_password@rabbitmq:5672/
+      RABBITMQ_QUEUE_IMAGE_RESULTS: image_results
+      RABBITMQ_QUEUE_IMAGE_DESCRIPTIONS: image_descriptions
+      
+      # NVIDIA API
+      NVIDIA_API_KEY: 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
+      NVIDIA_INVOKE_URL: https://integrate.api.nvidia.com/v1/chat/completions
+      
+      # Backend1 для обратной связи
+      BACKEND1_URL: http://backend1:8000
+    ports:
+      - "8002:8002"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - lct_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  minio_data:
+    driver: local
+
+networks:
+  lct_network:
+    driver: bridge

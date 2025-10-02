@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Nature gradient background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_nature" />
+
+    <!-- Help button at top -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@android:color/white"
+        android:contentDescription="Помощь"
+        android:src="@android:drawable/ic_menu_help"
+        android:elevation="8dp"
+        app:fabSize="normal"
+        app:borderWidth="0dp"
+        app:tint="@color/nature_green_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Main content container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Main map card with rounded corners and shadow -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mapCard"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginBottom="40dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="16dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <org.osmdroid.views.MapView
+                    android:id="@+id/mainMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/nature_made_simple" />
+
+                <!-- Прозрачная View поверх карты для перехвата кликов -->
+                <View
+                    android:id="@+id/mapClickOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <!-- Overlay hint text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#CC080905"
+                    android:padding="16dp"
+                    android:text="Нажмите, чтобы открыть карту"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:elevation="4dp"
+                    android:alpha="0.9"
+                    android:drawableTop="@android:drawable/ic_dialog_map"
+                    android:drawableTint="@android:color/white"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    app:cornerRadius="12dp" />
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bottom buttons container with improved spacing -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Gallery button (tree icon) -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/iconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@android:color/white"
+                android:contentDescription="Галерея"
+                android:src="@drawable/ic_tree"
+                android:elevation="8dp"
+                app:fabSize="normal"
+                app:borderWidth="0dp"
+                app:tint="@color/nature_green_dark" />
+
+            <!-- Get Started button with gradient effect -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/getStartedButton"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/white"
+                android:elevation="8dp"
+                android:letterSpacing="0.02"
+                android:paddingStart="28dp"
+                android:paddingEnd="24dp"
+                android:text="@string/take_photo"
+                android:textAllCaps="false"
+                android:textColor="@color/nature_green_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="32dp"
+                app:icon="@drawable/ic_camera"
+                app:iconGravity="textEnd"
+                app:iconPadding="12dp"
+                app:iconSize="28dp"
+                app:iconTint="@color/nature_green_dark" />
+
+        </LinearLayout>
+
+        <!-- Recent Trees button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recentPhotosButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/nature_green_dark"
+            android:elevation="8dp"
+            android:letterSpacing="0.02"
+            android:text="Последние деревья"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:cornerRadius="28dp"
+            app:icon="@drawable/ic_tree"
+            app:iconGravity="start"
+            app:iconPadding="12dp"
+            app:iconSize="24dp"
+            app:iconTint="@android:color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

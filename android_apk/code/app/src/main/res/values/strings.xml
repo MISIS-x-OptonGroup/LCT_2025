@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LCT_final</string>
+    <string name="nature_made_simple">Nature\nMade Simple</string>
+    <string name="subtitle">Discover and grow your perfect plant family</string>
+    <string name="get_started">Get Started</string>
+    <string name="take_photo">Сделать фото</string>
+    <string name="my_gallery">Моя галерея</string>
+    <string name="no_photos">Пока нет фотографий\nСделайте первое фото!</string>
+</resources>

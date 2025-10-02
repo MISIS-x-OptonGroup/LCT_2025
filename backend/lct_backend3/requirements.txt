@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+aio-pika
+pydantic
+pydantic-settings
+httpx
+Pillow
+python-multipart
