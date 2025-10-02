@@ -395,7 +395,7 @@ async def call_nvidia_api_with_base64_shared(image_b64: str, client: httpx.Async
             "Accept": "application/json",
         }
         payload = {
-            "model": "meta/llama-4-maverick-17b-128e-instruct",
+            "model": "meta/llama-3.2-90b-vision-instruct",
             "messages": [
                 {
                     "role": "user",
@@ -442,7 +442,7 @@ async def call_nvidia_api_with_base64(image_b64: str) -> str:
             "Accept": "application/json",
         }
         payload = {
-            "model": "meta/llama-4-maverick-17b-128e-instruct",
+            "model": "meta/llama-3.2-90b-vision-instruct",
             "messages": [
                 {
                     "role": "user",
@@ -562,7 +562,7 @@ async def call_nvidia_api_by_url(image_url: str) -> str:
         "Accept": "application/json",
     }
     payload = {
-        "model": "meta/llama-4-maverick-17b-128e-instruct",
+        "model": "meta/llama-3.2-90b-vision-instruct",
         "messages": [
             {
                 "role": "user",

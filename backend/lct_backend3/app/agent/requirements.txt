@@ -1,0 +1,16 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+requests==2.31.0
+python-dotenv==1.0.0
+pydantic>=2.7.4
+pandas>=2.2.0
+sentence-transformers>=2.7.0
+faiss-cpu>=1.7.0
+# Используем более новые версии LangChain, совместимые с pydantic v2
+langchain>=0.2.5
+langchain-openai>=0.1.14
+langchain-community>=0.2.5
+langgraph>=0.1.5
+langsmith>=0.1.82
+typing-extensions>=4.12.2

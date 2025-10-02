@@ -1,0 +1,24 @@
+[project]
+name = "agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "faiss-cpu>=1.7.0",
+    "fastapi==0.104.1",
+    "langchain>=0.2.5",
+    "langchain-openai>=0.1.14",
+    "langgraph>=0.1.5",
+    "pandas>=2.2.0",
+    "pillow==10.1.0",
+    "pydantic>=2.7.4",
+    "python-dotenv==1.0.0",
+    "python-multipart==0.0.6",
+    "requests==2.31.0",
+    "sentence-transformers>=2.7.0",
+    "uvicorn[standard]==0.24.0",
+    "langsmith>=0.1.82",
+    "typing-extensions>=4.12.2",
+    "langchain-community>=0.2.5",
+]
