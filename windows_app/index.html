@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTON GROUP</title>
+    <link rel="stylesheet" href="styles.css">
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+    
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <img src="icons/leaf.svg" alt="Icon" class="icon_1 header-icon">
+            <h1>AI Анализ Дереьвьев</h1>
+                <div style="flex:1"></div>
+                <button id="mapButton" class="secondary-button">Карта</button>
+        </header>
+        
+        <div id="uploadStep" class="step active">
+            <div class="upload-area">
+                <img src="icons/upload.svg" alt="Upload" class="upload-icon">
+                <button id="uploadButton" class="cta-button">Загрузить фото</button>
+                <p class="info-text">Выберите изображение для начала глубокого анализа.</p>
+            </div>
+        </div>
+
+        <div id="analysisStep" class="step">
+            <div class="analysis-card">
+                <div class="image-preview" id="imagePreview">
+                    <img id="mainImage" src="" alt="Загруженное изображение">
+                    <div class="scanner-animation" id="scannerAnimation">
+                        <div class="scanner-gradient-line"></div>
+                        <div class="scanner-light-beam"></div>
+                        <div class="scanner-particles"></div>
+                    </div>
+                </div>
+
+                <div class="analysis-result" id="analysisResult">
+                    <div class="result-header">
+                        <img src="icons/leaf.svg" alt="Analysis" class="icon">
+                        <h2>Результаты Анализа</h2>
+                    </div>
+                    
+                    <div class="fragment-viewer">
+                        <div class="fragment-image-wrapper" id="fragmentImageWrapper"></div>
+                        <div class="fragment-navigation">
+                            <button id="prevButton" class="nav-button"><img src="icons/chevron-left.svg" alt="Previous"></button>
+                            <span id="fragmentIndicator" class="fragment-counter">Фрагмент 1 / 9</span>
+                            <button id="nextButton" class="nav-button"><img src="icons/chevron-right.svg" alt="Next"></button>
+                        </div>
+                    </div>
+
+                    <div class="ai-response-block">
+                        <h3 class="response-title">Анализ фрагмента <span id="fragmentNumber">1</span>:</h3>
+                        <p id="responseText" class="response-text">Загрузка данных...</p>
+                    </div>
+                </div>
+            </div>
+            <button id="restartButton" class="secondary-button"><img src="icons/redo.svg" alt="Restart" class="button-icon"> Новый анализ</button>
+        </div>
+
+        <div id="mapStep" class="step">
+            <div id="map" style="width: 100%; height: 70vh; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);"></div>
+            <button id="backFromMapButton" class="secondary-button" style="margin-top:12px;"><img src="icons/chevron-left.svg" alt="Back" class="button-icon"> Назад</button>
+        </div>
+        
+        <!-- Модальное окно для превью изображения -->
+        <div id="imagePreviewModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="max-width: 90%; max-height: 90%; background: #1a1a1a; border-radius: 16px; padding: 20px; position: relative;">
+                <button id="closePreviewButton" style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.1); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px;">✕</button>
+                <div id="previewContent" style="text-align: center;">
+                    <div id="previewLoader" style="padding: 40px; font-size: 18px; color: #888;">⏳ Загрузка...</div>
+                    <img id="previewImage" style="display: none; max-width: 100%; max-height: 70vh; border-radius: 8px; margin-bottom: 20px;">
+                    <div id="previewInfo" style="display: none; color: white; margin-bottom: 20px;"></div>
+                    <button id="openAnalysisButton" style="display: none; padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">Открыть анализ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
