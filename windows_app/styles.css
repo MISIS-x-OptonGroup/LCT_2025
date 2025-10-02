@@ -1,0 +1,184 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #2e8b57; /* SeaGreen */
+    --secondary-color: #3CB371; /* MediumSeaGreen */
+    --background-dark: #1a1a1a;
+    --background-light: #2c2c2c;
+    --text-color: #e0e0e0;
+    --text-muted: #888;
+    --border-color: #444;
+    --shadow-color: rgba(46, 139, 87, 0.3);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Добавлено для правильного расчета размеров */
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: var(--background-light);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: auto; /* Центрирование контейнера */
+}
+
+/* --- ИЗМЕНЕНО: Стили для иконок-картинок --- */
+.icon {
+    width: 1.5em; /* Размер через em для масштабирования с текстом */
+    height: 1.5em;
+    margin-right: 12px;
+    vertical-align: middle; /* Выравнивание */
+}
+.header-icon {
+    width: 2.2em;
+    height: 2.2em;
+    margin-right: 15px;
+}
+.upload-icon {
+    width: 4em;
+    height: 4em;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+.button-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+/* Конец изменений */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.app-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 2em;
+}
+
+.step { display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.step.active { display: block; opacity: 1; transform: translateY(0); }
+
+.upload-area {
+    padding: 40px 20px; border: 2px dashed var(--border-color); border-radius: 12px; background-color: #333;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 25px;
+}
+
+.cta-button, .secondary-button {
+    background-color: var(--primary-color); color: white; border: none; padding: 14px 28px;
+    font-size: 1.1em; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    display: inline-flex; /* Используем inline-flex для лучшего выравнивания */
+    align-items: center; justify-content: center;
+}
+.cta-button:hover, .secondary-button:hover { background-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(46, 139, 87, 0.4); }
+.cta-button:disabled { background-color: #555; cursor: not-allowed; transform: none; box-shadow: none; }
+.info-text { margin-top: 20px; color: var(--text-muted); font-size: 0.95em; }
+.secondary-button { background-color: #555; margin-top: 30px; font-size: 0.95em; padding: 10px 20px; }
+.secondary-button:hover { background-color: #666; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
+
+/* --- Analysis Step --- */
+.analysis-card {
+    display: flex;
+    gap: 30px;
+    background-color: var(--background-dark);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-preview {
+    flex: 1; min-width: 280px; /* Уменьшил min-width */ height: 400px; background-color: #333;
+    border-radius: 10px; position: relative; overflow: hidden; display: flex;
+    justify-content: center; align-items: center; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+#mainImage { max-width: 100%; max-height: 100%; object-fit: contain; display: none; transition: filter 0.5s ease; }
+.image-preview.is-scanning #mainImage { animation: flicker 4s ease-in-out infinite; }
+
+.scanner-animation { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; display: none; background-color: rgba(0, 0, 0, 0.5); }
+.image-preview.is-scanning .scanner-animation { display: block; }
+.scanner-gradient-line { position: absolute; width: 100%; height: 8px; background: linear-gradient(90deg, transparent, var(--primary-color), var(--primary-color), var(--primary-color), transparent); box-shadow: 0 0 15px var(--primary-color), 0 0 8px rgba(255, 255, 255, 0.5); animation: scan-line 8s ease-in-out forwards; }
+.scanner-light-beam { position: absolute; width: 100%; height: 40px; background: linear-gradient(0deg, rgba(46, 139, 87, 0) 0%, rgba(46, 139, 87, 0.3) 50%, rgba(46, 139, 87, 0) 100%); filter: blur(8px); animation: scan-line 8s ease-in-out 0.2s forwards; }
+.scanner-particles { position: absolute; width: 100%; height: 100%; background-image: radial-gradient(circle at center, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 5px 5px; animation: scan-particles 8s linear forwards; }
+@keyframes scan-line { from { transform: translateY(-100%); } to { transform: translateY(400px); } }
+@keyframes scan-particles { from { opacity: 0; background-position: 0 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } to { opacity: 0; background-position: 0 100%; } }
+@keyframes flicker { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.2); } }
+
+.analysis-result { flex: 1; min-width: 280px; /* Уменьшил min-width */ background-color: var(--background-dark); border-radius: 10px; padding: 20px; text-align: left; display: none; }
+.analysis-result.active { display: block; animation: fadeIn 0.8s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.result-header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+.result-header h2 { font-family: 'Montserrat', sans-serif; color: var(--primary-color); margin: 0; font-size: 1.5em; }
+.fragment-viewer { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.fragment-image-wrapper { width: 180px; height: 180px; border: 2px solid var(--primary-color); border-radius: 8px; overflow: hidden; position: relative; background-color: #333; box-shadow: 0 0 10px rgba(46, 139, 87, 0.4); background-size: cover; background-position: center center; transition: transform 0.3s ease; }
+.fragment-image-wrapper.pulse { animation: pulse 0.5s ease-in-out; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.fragment-navigation { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+
+/* --- ИЗМЕНЕНО: Стили для кнопок-картинок навигации --- */
+.nav-button { background-color: #444; color: var(--text-color); border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; line-height: 0; /* Убираем лишнюю высоту */ }
+.nav-button img { width: 1.1em; height: 1.1em; }
+/* Конец изменений */
+
+.nav-button:hover { background-color: #555; transform: translateY(-1px); }
+.nav-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.fragment-counter { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary-color); font-size: 1em; min-width: 100px; }
+.ai-response-block { background-color: #222; border-left: 4px solid var(--primary-color); padding: 18px; border-radius: 8px; margin-top: 30px; }
+.response-title { font-family: 'Montserrat', sans-serif; color: var(--primary-color); margin-top: 0; margin-bottom: 12px; font-size: 1.3em; }
+.response-text { line-height: 1.6; color: var(--text-color); font-size: 1em; }
+
+
+/* --- ИЗМЕНЕНО: Медиа-запрос для адаптивности --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Уменьшаем отступы на маленьких экранах */
+        display: block; /* Убираем flex-центровку для скролла */
+    }
+    .container {
+        padding: 20px;
+    }
+    .app-header h1 {
+        font-size: 1.5em; /* Уменьшаем заголовок */
+    }
+    .analysis-card {
+        flex-direction: column; /* Ставим блоки друг под друга */
+        padding: 15px;
+    }
+    .image-preview, .analysis-result {
+        min-width: 100%; /* Занимают всю ширину */
+    }
+    .image-preview {
+        height: 300px; /* Уменьшаем высоту превью */
+    }
+}
+
+img.icon,
+.upload-icon,
+.nav-button img,
+.button-icon {
+    filter: brightness(0) invert(1); /* делает иконку белой */
+}
